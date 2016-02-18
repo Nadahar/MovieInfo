@@ -10,7 +10,7 @@ import net.pms.dlna.DLNAResource;
 import net.pms.dlna.RealFile;
 import net.pms.external.AdditionalFolderAtRoot;
 import net.pms.external.AdditionalResourceFolderListener;
-import java.awt.Component;
+import net.pms.newgui.LooksFrame;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -198,14 +198,14 @@ public class MovieInfo implements AdditionalFolderAtRoot,
 		builder.addLabel("Scan path:", cc.xy(1, 9));
 		builder.add(ScanPath, cc.xyw(3, 9,12));
 		ScanPath.setText((String)PMS.getConfiguration().getCustomProperty("movieinfo.scan_path"));
-		JButton scan =new JButton("Scan files");
+		JButton scan = new JButton("Scan files");
 		scan.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				if (mdb!=null) {
 					if (!mdb.isScanLibraryRunning()) {
 						int option = JOptionPane.showConfirmDialog(
-								(Component) PMS.get().getFrame(),
+								LooksFrame.get(),
 								Messages.getString("FoldTab.3") + Messages.getString("FoldTab.4"),
 								Messages.getString("Dialog.Question"),
 								JOptionPane.YES_NO_OPTION);
@@ -214,7 +214,7 @@ public class MovieInfo implements AdditionalFolderAtRoot,
 						}
 					} else {
 						int option = JOptionPane.showConfirmDialog(
-								(Component) PMS.get().getFrame(),
+								LooksFrame.get(),
 								Messages.getString("FoldTab.10"),
 								Messages.getString("Dialog.Question"),
 								JOptionPane.YES_NO_OPTION);

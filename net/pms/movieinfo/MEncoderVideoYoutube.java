@@ -117,7 +117,6 @@ public class MEncoderVideoYoutube extends Player {
 		return "MEncoder Youtube"; //$NON-NLS-1$
 	}
 
-	@Override
 	public String[] args() {
 		return getDefaultArgs();
 	}
